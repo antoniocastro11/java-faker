@@ -35,7 +35,7 @@ public class Finance {
         int luhnSum = 0;
         int multiplier = 1;
         for (Integer digit : reversedAsInt) {
-            multiplier = (multiplier == 2 ? 1 : 2);
+            multiplier = multiplier == 2 ? 1 : 2;
             luhnSum += sum(String.valueOf(digit * multiplier).split(""));
         }
         int luhnDigit = (10 - (luhnSum % 10)) % 10;

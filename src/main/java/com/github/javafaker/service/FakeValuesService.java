@@ -278,7 +278,7 @@ public class FakeValuesService {
      * @return
      */
     public String letterify(String letterString, boolean isUpper) {
-        return letterHelper((isUpper) ? 65 : 97, letterString); // from ascii table
+        return letterHelper(isUpper ? 65 : 97, letterString); // from ascii table
     }
 
     private String letterHelper(int baseChar, String letterString) {

@@ -122,7 +122,7 @@ public class Code {
         String value = stripIsbnSeparator(t);
         int sum = 0;
         for (int i = 0; i < value.length(); i++) {
-            sum += ((i + 1) * toInt(value.substring(i, i + 1)));
+            sum += (i + 1) * toInt(value.substring(i, i + 1));
         }
         return sum % 11;
     }
@@ -180,7 +180,7 @@ public class Code {
         }
 
         // Choose the last digit so that it causes the entire string to pass the checksum.
-        str[len - 1] = Character.forDigit(((10 - (sum % 10)) % 10), 10);
+        str[len - 1] = Character.forDigit((10 - (sum % 10)) % 10, 10);
 
         return new String(str);
     }
