@@ -74,10 +74,10 @@ public class SvSEIdNumber {
         String calculatedNumber = calculateDigits(dateString + birthNumber);
         int sum = calculateDigitSum(calculatedNumber);
 
-        int lastDigit = (sum % 10);
+        int lastDigit = sum % 10;
         int difference = 10 - lastDigit;
 
-        return (difference % 10);
+        return difference % 10;
     }
 
     private String calculateDigits(String numbers) {
