@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import static org.apache.commons.lang3.StringUtils.join;
 
@@ -79,7 +80,7 @@ public class Company {
     }
 
     private String domainName(){
-        return StringUtils.deleteWhitespace(name().toLowerCase().replaceAll(",", "").replaceAll("'", ""));
+        return StringUtils.deleteWhitespace(name().toLowerCase(Locale.ROOT).replaceAll(",", "").replaceAll("'", ""));
     }
 
     private String domainSuffix() {

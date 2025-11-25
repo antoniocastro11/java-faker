@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.Locale;
 
 import static org.apache.commons.lang3.StringUtils.join;
 import static org.apache.commons.lang3.StringUtils.stripAccents;
@@ -43,7 +44,7 @@ public class Internet {
     }
 
     public String domainWord() {
-        return FakerIDN.toASCII(faker.name().lastName().toLowerCase().replaceAll("'", ""));
+        return FakerIDN.toASCII(faker.name().lastName().toLowerCase(Locale.ROOT).replaceAll("'", ""));
     }
 
     public String domainSuffix() {
@@ -55,7 +56,7 @@ public class Internet {
                 "www",
                 ".",
                 FakerIDN.toASCII(
-                        faker.name().firstName().toLowerCase().replaceAll("'", "") +
+                        faker.name().firstName().toLowerCase(Locale.ROOT).replaceAll("'", "") +
                                 "-" +
                                 domainWord()
                 ),

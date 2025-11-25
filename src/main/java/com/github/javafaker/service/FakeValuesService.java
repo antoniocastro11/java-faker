@@ -20,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Locale;
 
 public class FakeValuesService {
 
@@ -458,7 +459,7 @@ public class FakeValuesService {
     private String javaNameToYamlName(String expression) {
         return expression.replaceAll("([A-Z])", "_$1")
                 .substring(1)
-                .toLowerCase();
+                .toLowerCase(Locale.ROOT);
     }
 
 
