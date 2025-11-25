@@ -85,7 +85,9 @@ public class Internet {
      */
     public String image() {
         String[] dimension = StringUtils.split(faker.fakeValuesService().resolve("internet.image_dimension", this, faker), 'x');
-        if (dimension.length == 0) return "";
+        if (dimension.length == 0) {
+            return "";
+        }
         return image(
                 Integer.valueOf(StringUtils.trim(dimension[0])), Integer.valueOf(StringUtils.trim(dimension[1])),
                 faker.bool().bool(), null);

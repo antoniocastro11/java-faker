@@ -157,7 +157,9 @@ public class FakeValuesService {
     @SuppressWarnings("unchecked")
     public String safeFetch(String key, String defaultIfNull) {
         Object o = fetchObject(key);
-        if (o == null) return defaultIfNull;
+        if (o == null) {
+            return defaultIfNull;
+        }
         if (o instanceof List) {
             List<String> values = (List<String>) o;
             if (values.size() == 0) {
