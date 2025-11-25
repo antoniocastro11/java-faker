@@ -118,16 +118,16 @@ public class Code {
         return separator ? isbn13.toString() : stripIsbnSeparator(isbn13);
     }
 
-    private final int isbn10CheckDigit(CharSequence t) {
+    private int isbn10CheckDigit(CharSequence t) {
         String value = stripIsbnSeparator(t);
         int sum = 0;
         for (int i = 0; i < value.length(); i++) {
             sum += (i + 1) * toInt(value.substring(i, i + 1));
         }
         return sum % 11;
-    }
+    }   
 
-    private final int isbn13CheckDigit(CharSequence t) {
+    private int isbn13CheckDigit(CharSequence t) {
         String value = stripIsbnSeparator(t);
         int sum = 0;
         int multiplier = 0;
@@ -135,12 +135,11 @@ public class Code {
             multiplier = i % 2 == 0 ? 1 : 3;
             sum += multiplier * toInt(value.subSequence(i, i + 1).toString());
         }
-
-        return (10 - sum % 10) % 10;
+        return sum % 10;
     }
 
-    private final String stripIsbnSeparator(CharSequence t) {
-        return t.toString().replaceAll("-","");
+    private String stripIsbnSeparator(CharSequence t) {
+        return t.toString().replaceAll("-", "");
     }
 
     public String asin() {
