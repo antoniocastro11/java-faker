@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Locale;
 
 public class Finance {
     private final Faker faker;
@@ -20,7 +21,7 @@ public class Finance {
             createCountryCodeToBasicBankAccountNumberPatternMap();
 
     public String creditCard(CreditCardType creditCardType) {
-        final String key = String.format("finance.credit_card.%s", creditCardType.toString().toLowerCase());
+        final String key = String.format("finance.credit_card.%s", creditCardType.toString().toLowerCase(Locale.ROOT));
         String value = faker.fakeValuesService().resolve(key, this, faker);
         final String template = faker.numerify(value);
 
@@ -84,7 +85,7 @@ public class Finance {
         String basis = basicBankAccountNumber + countryCode + "00";
 
         StringBuilder sb = new StringBuilder();
-        char[] characters = basis.toLowerCase().toCharArray();
+        char[] characters = basis.toLowerCase(Locale.ROOT).toCharArray();
         for (char c : characters) {
             if (Character.isLetter(c)) {
                 sb.append(String.valueOf((c - 'a') + 10));

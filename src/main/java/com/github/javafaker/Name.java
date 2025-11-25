@@ -1,6 +1,7 @@
 package com.github.javafaker;
 
 import org.apache.commons.lang3.StringUtils;
+import java.util.Locale;
 
 public class Name {
     
@@ -122,9 +123,9 @@ public class Name {
     public String username() {
 
         String username = StringUtils.join(
-                firstName().replaceAll("'", "").toLowerCase(),
+                firstName().replaceAll("'", "").toLowerCase(Locale.ROOT),
                 ".",
-                lastName().replaceAll("'", "").toLowerCase()
+                lastName().replaceAll("'", "").toLowerCase(Locale.ROOT)
         );
 
         return StringUtils.deleteWhitespace(username);
